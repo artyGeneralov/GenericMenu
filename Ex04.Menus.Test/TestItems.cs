@@ -10,23 +10,27 @@ namespace Ex04.Menus.Test
         {
             Console.WriteLine("Bye bye");
             Program.hasQuitted = true;
+            endProgram();
         }
 
         public static void ShowDate()
         {
             DateTime currentDate = DateTime.Now;
             Console.WriteLine($"Current Date: {currentDate.ToShortDateString()}");
+            endProgram();
         }
 
         public static void ShowTime()
         {
             DateTime currentDate = DateTime.Now;
             Console.WriteLine($"Current Date: {currentDate.ToShortTimeString()}");
+            endProgram();
         }
 
         public static void ShowVersion()
         {
             Console.WriteLine("Version: 23.3.4.9835");
+            endProgram();
         }
 
         public static void CountCapitals()
@@ -45,6 +49,13 @@ namespace Ex04.Menus.Test
             }
 
             Console.WriteLine($"Number of capitals in string: {capitalCount}");
+            endProgram();
+        }
+
+        private static void endProgram()
+        {
+            Console.WriteLine("Press ENTER...");
+            Console.ReadLine();
         }
     }
 }

@@ -32,6 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DelegatesMenuTest.cs" />
+    <Compile Include="InterfacesMenuTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="TestItems.cs" />
   </ItemGroup>

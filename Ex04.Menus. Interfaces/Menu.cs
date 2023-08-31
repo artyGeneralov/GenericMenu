@@ -3,27 +3,28 @@ using Ex02.ConsoleUtils;
 using System;
 namespace Ex04.Menus.Interfaces
 {
-    public class Menu : IMenuItem
+    public class Menu 
     {
         public string Name { get; }
-        private List<IMenuItem> menuItems;
+        private List<MenuItem> menuItems;
         public Menu(string name)
         {
             Name = name;
-            menuItems = new List<IMenuItem>();
+            menuItems = new List<MenuItem>();
         }
 
-        public void AddMenuItem(IMenuItem menuItem)
+        public MenuItem AddMenuItem(MenuItem menuItem)
         {
             menuItems.Add(menuItem);
+            return menuItem;
         }
 
-        public void MenuItemActivate()
+        public void ShowMenu()
         {
-            Show();
-            HandleChoice();
+            show();
+            handleChoice();
         }
-        private void Show()
+        private void show()
         {
             Screen.Clear();
             Console.WriteLine($"{Name}");
@@ -32,19 +33,17 @@ namespace Ex04.Menus.Interfaces
                 Console.WriteLine($"{i + 1}. {menuItems[i].Name}");
             }
         }
-        private void HandleChoice()
+        private void handleChoice()
         {
             int choice;
-            if (int.TryParse(Console.ReadLine(), out choice)
+            while (!(int.TryParse(Console.ReadLine(), out choice)
                             && choice > 0
-                            && choice <= menuItems.Count)
+                            && choice <= menuItems.Count))
             {
+                Console.WriteLine("Wrong Input");
+            }
                 menuItems[choice - 1].MenuItemActivate();
-            }
-            else
-            {
-                throw new FormatException("Wrong input");
-            }
+
         }
 
 

@@ -2,22 +2,20 @@
 using Ex02.ConsoleUtils;
 namespace Ex04.Menus.Delegates
 {
-    public delegate void MenuAction ();
     public class MenuItem
     {
         public string Name { get; set; }
-        public event Action OnMenuSelected;
+        public event Action m_menuSelected;
 
         public MenuItem(string name)
         {
             Name = name;
         }
 
-        public void MenuSelected()
+        public void OnMenuSelected()
         {
             Screen.Clear();
-            OnMenuSelected?.Invoke();
-            Console.ReadLine();
+            m_menuSelected?.Invoke();
         }
 
     }

@@ -35,9 +35,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IMenuItem.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="MenuAction.cs" />
+    <Compile Include="MenuItem.cs" />
+    <Compile Include="IMenuSelectObserver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Ex02.ConsoleUtils">

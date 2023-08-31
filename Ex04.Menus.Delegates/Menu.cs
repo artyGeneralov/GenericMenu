@@ -28,16 +28,15 @@ namespace Ex04.Menus.Delegates
             }
 
             int choice;
-            if(int.TryParse(Console.ReadLine(), out choice) &&
+            while(!(int.TryParse(Console.ReadLine(), out choice) &&
                                                     choice > 0 && 
-                                                    choice <= MenuItems.Count)
+                                                    choice <= MenuItems.Count))
             {
-                MenuItems[choice - 1].MenuSelected();
+                Console.WriteLine("Wrong Input");
             }
-            else
-            {
-                throw new FormatException("Wrong Input");
-            }
+
+                MenuItems[choice - 1].OnMenuSelected();
+
         }
     }
 }
