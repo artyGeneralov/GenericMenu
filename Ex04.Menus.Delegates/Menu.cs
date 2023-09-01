@@ -6,7 +6,7 @@ namespace Ex04.Menus.Delegates
     public class Menu
     {
         public string Name { get; set; }
-        public List<MenuItem> MenuItems { get; set; }
+        private readonly List<MenuItem> MenuItems;
         public Menu(string name)
         {
             Name = name;
@@ -35,7 +35,7 @@ namespace Ex04.Menus.Delegates
                 Console.WriteLine("Wrong Input");
             }
 
-                MenuItems[choice - 1].OnMenuSelected();
+                MenuItems[choice - 1].MenuSelectedHandler();
 
         }
     }

@@ -72,7 +72,6 @@ namespace Ex04.Menus.Test
                 case "Back":
                     mainMenu.ShowMenu();
                     break;
-
             }
         }
 

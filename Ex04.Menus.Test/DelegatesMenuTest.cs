@@ -18,18 +18,18 @@ namespace Ex04.Menus.Test
             MenuItem back = new MenuItem("Back");
             MenuItem exit = new MenuItem("Exit");
 
-            showDate.m_menuSelected += () => TestItems.ShowDate();
-            showTime.m_menuSelected += () => TestItems.ShowTime();
-            showVersion.m_menuSelected += () => TestItems.ShowVersion();
-            countCaps.m_menuSelected += () => TestItems.CountCapitals();
-            back.m_menuSelected += () => mainMenu_d.Show();
-            exit.m_menuSelected += () => TestItems.Exit();
+            showDate.MenuSelected += () => TestItems.ShowDate();
+            showTime.MenuSelected += () => TestItems.ShowTime();
+            showVersion.MenuSelected += () => TestItems.ShowVersion();
+            countCaps.MenuSelected += () => TestItems.CountCapitals();
+            back.MenuSelected += () => mainMenu_d.Show();
+            exit.MenuSelected += () => TestItems.Exit();
 
             MenuItem showDateTimeMenu = new MenuItem("Show Date/Time");
             MenuItem showVersionCapsMenu = new MenuItem("Version and Capitals");
 
-            showDateTimeMenu.m_menuSelected += () => dateTimeMenu_d.Show();
-            showVersionCapsMenu.m_menuSelected += () => versionCapitalsMenu_d.Show();
+            showDateTimeMenu.MenuSelected += () => dateTimeMenu_d.Show();
+            showVersionCapsMenu.MenuSelected += () => versionCapitalsMenu_d.Show();
 
             dateTimeMenu_d.AddMenuItem(showDate);
             dateTimeMenu_d.AddMenuItem(showTime);
