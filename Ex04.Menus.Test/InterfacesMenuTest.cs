@@ -13,32 +13,26 @@ namespace Ex04.Menus.Test
 
         public void LaunchMenuWithInterfaces()
         {
-            dateTimeMenu = new Menu("Show Date/Time");
-            versionCapitalsMenu =new Menu("Version and Capitals");
             mainMenu = new Menu("Main Menu");
-
+            dateTimeMenu = new Menu("Show Date/Time" , mainMenu);
+            versionCapitalsMenu =new Menu("Version and Capitals", mainMenu);
+            
             listOfMenuItems.Add(mainMenu.AddMenuItem(new MenuItem("Show Date/Time")));
             listOfMenuItems.Add(mainMenu.AddMenuItem(new MenuItem("Version and Capitals")));
-            listOfMenuItems.Add(mainMenu.AddMenuItem(new MenuItem("Exit")));
 
             listOfMenuItems.Add(dateTimeMenu.AddMenuItem(new MenuItem("Show Date")));
             listOfMenuItems.Add(dateTimeMenu.AddMenuItem(new MenuItem("Show Time")));
-            listOfMenuItems.Add(dateTimeMenu.AddMenuItem(new MenuItem("Back")));
 
             listOfMenuItems.Add(versionCapitalsMenu.AddMenuItem(new MenuItem("Show Version")));
             listOfMenuItems.Add(versionCapitalsMenu.AddMenuItem(new MenuItem("Count Capitals")));
-            listOfMenuItems.Add(versionCapitalsMenu.AddMenuItem(new MenuItem("Back")));
 
             foreach (MenuItem item in listOfMenuItems)
             {
                 item.AttachObserver(this);
             }
 
-            while (!Program.hasQuitted)
-            {
-                mainMenu.ShowMenu();
-            }
-            Program.hasQuitted = false;
+            mainMenu.Show();
+
         }
 
         public void MenuSelect(string name)
@@ -46,13 +40,10 @@ namespace Ex04.Menus.Test
             switch (name)
             {
                 case "Show Date/Time":
-                    dateTimeMenu.ShowMenu();
+                    dateTimeMenu.Show();
                     break;
                 case "Version and Capitals":
-                    versionCapitalsMenu.ShowMenu();
-                    break;
-                case "Exit":
-                    TestItems.Exit();
+                    versionCapitalsMenu.Show();
                     break;
 
                 case "Show Date":
@@ -69,9 +60,6 @@ namespace Ex04.Menus.Test
                     TestItems.CountCapitals();
                     break;
 
-                case "Back":
-                    mainMenu.ShowMenu();
-                    break;
             }
         }
 

@@ -7,47 +7,25 @@ namespace Ex04.Menus.Test
 
         public static void LaunchMenuWithDelegates()
         {
-            Menu mainMenu_d = new Menu("Main Menu");
-            Menu dateTimeMenu_d = new Menu("Show Date/Time");
-            Menu versionCapitalsMenu_d = new Menu("Version and Capitals");
+            Menu mainMenu = new Menu("Main Menu");
+            Menu dateTimeMenu = new Menu("Show Date/Time", mainMenu);
+            Menu versionCapitalsMenu = new Menu("Version and Capitals", mainMenu);
 
-            MenuItem showDate = new MenuItem("Show Date");
-            MenuItem showTime = new MenuItem("Show Time");
-            MenuItem showVersion = new MenuItem("Show Version");
-            MenuItem countCaps = new MenuItem("Count Capitals");
-            MenuItem back = new MenuItem("Back");
-            MenuItem exit = new MenuItem("Exit");
+            dateTimeMenu.AddMenuItem(new MenuItem("Show Date",
+                                    () => TestItems.ShowDate()));
+            dateTimeMenu.AddMenuItem(new MenuItem("Show Time",
+                                    () => TestItems.ShowTime()));
 
-            showDate.MenuSelected += () => TestItems.ShowDate();
-            showTime.MenuSelected += () => TestItems.ShowTime();
-            showVersion.MenuSelected += () => TestItems.ShowVersion();
-            countCaps.MenuSelected += () => TestItems.CountCapitals();
-            back.MenuSelected += () => mainMenu_d.Show();
-            exit.MenuSelected += () => TestItems.Exit();
+            versionCapitalsMenu.AddMenuItem(new MenuItem("Show Version",
+                                            () => TestItems.ShowVersion()));
+            versionCapitalsMenu.AddMenuItem(new MenuItem("Count Capitals",
+                                            () => TestItems.CountCapitals()));
 
-            MenuItem showDateTimeMenu = new MenuItem("Show Date/Time");
-            MenuItem showVersionCapsMenu = new MenuItem("Version and Capitals");
+            mainMenu.AddMenuItem(dateTimeMenu);
+            mainMenu.AddMenuItem(versionCapitalsMenu);
 
-            showDateTimeMenu.MenuSelected += () => dateTimeMenu_d.Show();
-            showVersionCapsMenu.MenuSelected += () => versionCapitalsMenu_d.Show();
+            mainMenu.Show();
 
-            dateTimeMenu_d.AddMenuItem(showDate);
-            dateTimeMenu_d.AddMenuItem(showTime);
-            dateTimeMenu_d.AddMenuItem(back);
-
-            versionCapitalsMenu_d.AddMenuItem(showVersion);
-            versionCapitalsMenu_d.AddMenuItem(countCaps);
-            versionCapitalsMenu_d.AddMenuItem(back);
-
-            mainMenu_d.AddMenuItem(showDateTimeMenu);
-            mainMenu_d.AddMenuItem(showVersionCapsMenu);
-            mainMenu_d.AddMenuItem(exit);
-
-            while (!Program.hasQuitted)
-            {
-                mainMenu_d.Show();
-            }
-            Program.hasQuitted = false;
         }
     }
 }

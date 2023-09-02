@@ -5,17 +5,17 @@ namespace Ex04.Menus.Delegates
     public class MenuItem
     {
         public string Name { get; set; }
-        public event Action MenuSelected;
-
-        public MenuItem(string name)
+        private Action menuItemAction;
+        public MenuItem(string name, Action menuItemAction)
         {
             Name = name;
+            this.menuItemAction = menuItemAction;
         }
 
         public void MenuSelectedHandler()
         {
             Screen.Clear();
-            MenuSelected?.Invoke();
+            menuItemAction?.Invoke();
         }
 
     }

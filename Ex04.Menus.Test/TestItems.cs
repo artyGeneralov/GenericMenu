@@ -6,12 +6,6 @@ namespace Ex04.Menus.Test
 {
     static class TestItems
     {
-        public static void Exit()
-        {
-            Console.WriteLine("Bye bye");
-            Program.hasQuitted = true;
-            endProgram();
-        }
 
         public static void ShowDate()
         {
