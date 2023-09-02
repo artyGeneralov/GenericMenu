@@ -1,10 +1,8 @@
-﻿using System;
-namespace Ex04.Menus.Test
+﻿namespace Ex04.Menus.Test
 {
     public delegate void myDelegate(string s);
     class Program 
     {
-        public static bool hasQuitted = false;
 
         public static void Main()
         {

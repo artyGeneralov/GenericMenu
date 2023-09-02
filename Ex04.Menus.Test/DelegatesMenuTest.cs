@@ -7,9 +7,9 @@ namespace Ex04.Menus.Test
 
         public static void LaunchMenuWithDelegates()
         {
-            Menu mainMenu = new Menu("Main Menu");
-            Menu dateTimeMenu = new Menu("Show Date/Time", mainMenu);
-            Menu versionCapitalsMenu = new Menu("Version and Capitals", mainMenu);
+            Menu mainMenu = new Menu("Main Menu", true);
+            Menu dateTimeMenu = new Menu("Show Date/Time");
+            Menu versionCapitalsMenu = new Menu("Version and Capitals");
 
             dateTimeMenu.AddMenuItem(new MenuItem("Show Date",
                                     () => TestItems.ShowDate()));

@@ -35,13 +35,14 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ex02.ConsoleUtils">
-      <HintPath>..\..\..\Temp\Ex02.ConsoleUtils.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Menu.cs" />
     <Compile Include="MenuItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Ex02.ConsoleUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Util\Ex02.ConsoleUtils.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

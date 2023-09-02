@@ -6,17 +6,15 @@ namespace Ex04.Menus.Test
     class InterfacesMenuTest : IMenuSelectObserver
     {
 
-       
-
         private Menu dateTimeMenu, versionCapitalsMenu, mainMenu;
-        private readonly List<MenuItem> listOfMenuItems = new List<MenuItem>();
 
         public void LaunchMenuWithInterfaces()
         {
-            mainMenu = new Menu("Main Menu");
-            dateTimeMenu = new Menu("Show Date/Time" , mainMenu);
-            versionCapitalsMenu =new Menu("Version and Capitals", mainMenu);
-            
+            List<MenuItem> listOfMenuItems = new List<MenuItem>();
+            mainMenu = new Menu("Main Menu", true);
+            dateTimeMenu = new Menu("Show Date/Time");
+            versionCapitalsMenu =new Menu("Version and Capitals");
+
             listOfMenuItems.Add(mainMenu.AddMenuItem(new MenuItem("Show Date/Time")));
             listOfMenuItems.Add(mainMenu.AddMenuItem(new MenuItem("Version and Capitals")));
 

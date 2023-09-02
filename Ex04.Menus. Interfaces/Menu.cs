@@ -7,12 +7,12 @@ namespace Ex04.Menus.Interfaces
     {
         public string Name { get; }
         private readonly List<MenuItem> menuItems;
-        private readonly Menu previousMenu;
-        public Menu(string name, Menu previousMenu = null)
+        private bool isMain;
+        public Menu(string name, bool isMain = false)
         {
             Name = name;
             menuItems = new List<MenuItem>();
-            this.previousMenu = previousMenu;
+            this.isMain = isMain;
         }
 
         public MenuItem AddMenuItem(MenuItem menuItem)
@@ -20,7 +20,6 @@ namespace Ex04.Menus.Interfaces
             menuItems.Add(menuItem);
             return menuItem;
         }
-
 
         public void Show()
         {
@@ -31,7 +30,7 @@ namespace Ex04.Menus.Interfaces
                 Console.WriteLine($"{i + 1} -> {menuItems[i].Name}");
             }
 
-            if (previousMenu == null)
+            if (isMain == true)
             {
                 Console.WriteLine("0 -> Exit");
             }
@@ -48,20 +47,22 @@ namespace Ex04.Menus.Interfaces
                 Console.WriteLine("Wrong Input");
             }
 
-            if (choice == 0 && previousMenu == null)
+            if(choice == 0)
             {
                 return;
-            }
-            else if (choice == 0 && previousMenu != null)
-            {
-                previousMenu.Show();
             }
             else
             {
                 menuItems[choice - 1].MenuItemActivate();
+                Show();
             }
+
+            
             
         }
+
+
+
 
     }
 }

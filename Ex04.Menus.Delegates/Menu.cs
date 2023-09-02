@@ -7,12 +7,12 @@ namespace Ex04.Menus.Delegates
     {
         public string Name { get; set; }
         private readonly List<MenuItem> MenuItems;
-        private readonly Menu previousMenu;
-        public Menu(string name, Menu previousMenu = null)
+        private bool isMain;
+        public Menu(string name, bool isMain = false)
         {
             Name = name;
             MenuItems = new List<MenuItem>();
-            this.previousMenu = previousMenu;
+            this.isMain = isMain;
         }
 
         public void AddMenuItem(MenuItem menuItem)
@@ -34,7 +34,7 @@ namespace Ex04.Menus.Delegates
                 Console.WriteLine($"{i + 1} -> {MenuItems[i].Name}");
             }
 
-            if (previousMenu == null)
+            if (isMain == true)
             {
                 Console.WriteLine("0 -> Exit");
             }
@@ -43,7 +43,7 @@ namespace Ex04.Menus.Delegates
                 Console.WriteLine("0 -> Back");
             }
 
-            int choice;
+            int choice = -1;
             while (!(int.TryParse(Console.ReadLine(), out choice) &&
                                                     choice >= 0 &&
                                                     choice <= MenuItems.Count))
@@ -51,19 +51,16 @@ namespace Ex04.Menus.Delegates
                 Console.WriteLine("Wrong Input");
             }
 
-            if (choice == 0 && previousMenu == null)
+            if (choice == 0)
             {
                 return;
             }
-            else if (choice == 0 && previousMenu != null)
-            {
-                previousMenu.Show();
-            }
             else
-            {
+            { 
                 MenuItems[choice - 1].MenuSelectedHandler();
+                Show();
             }
-
         }
+
     }
 }
