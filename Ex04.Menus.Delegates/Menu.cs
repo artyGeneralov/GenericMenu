@@ -7,7 +7,7 @@ namespace Ex04.Menus.Delegates
     {
         public string Name { get; set; }
         private readonly List<MenuItem> MenuItems;
-        private Menu previousMenu;
+        private readonly Menu previousMenu;
         public Menu(string name, Menu previousMenu = null)
         {
             Name = name;

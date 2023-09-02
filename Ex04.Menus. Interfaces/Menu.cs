@@ -7,7 +7,7 @@ namespace Ex04.Menus.Interfaces
     {
         public string Name { get; }
         private readonly List<MenuItem> menuItems;
-        private Menu previousMenu;
+        private readonly Menu previousMenu;
         public Menu(string name, Menu previousMenu = null)
         {
             Name = name;
